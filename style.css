@@ -1,126 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@200;300&display=swap');
 
-:root {
-    --bg-color: #f8f5f2; /* ნაზი ბეჟი */
-    --accent-color: #d4cfc9; /* აბსტრაქტული ჩრდილის ფერი */
-    --text-color: #2c2c2c;
-    --luxury-gold: #a69d91;
-}
-
 body {
     margin: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: #f8f5f2; /* SERENE Beige */
+    color: #2c2c2c;
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
 }
 
-/* ლოგოს სტილი */
-.logo-container {
-    padding: 40px;
+/* დახვეწილი ტექსტური ლოგო */
+nav {
+    padding: 30px 0;
     text-align: center;
-}
-.logo-container img {
-    max-width: 150px;
-    height: auto;
+    letter-spacing: 0.8em;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Hero Section - აბსტრაქტული და სიღრმისეული */
+/* შემცირებული ზედა სივრცე */
 header {
-    height: 80vh;
+    padding: 60px 20px;
+    text-align: center;
+    background: #f2f0eb;
+}
+
+header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #8c8c8c;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+/* გალერეის ეფექტი */
+.product-card {
     display: flex;
     flex-direction: column;
+    margin-bottom: 120px;
+    gap: 40px;
+}
+
+/* პროდუქტის აღწერა გვერდზე */
+.product-info {
+    max-width: 500px;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 600px; /* ფიქსირებული სიმაღლე ესთეტიკისთვის */
+    display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, rgba(248,245,242,1) 0%, rgba(212,207,201,0.3) 100%);
-    text-align: center;
 }
 
-h1, h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-}
-
-.collection-title {
-    margin-top: 100px;
-    font-size: 2rem;
-    color: var(--luxury-gold);
-}
-
-/* პროდუქტების ბადე */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 60px;
-    padding: 50px 10%;
-}
-
-.product-card {
-    position: relative;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-}
-
-.product-image-container {
-    overflow: hidden;
-    background-color: #eeeae6;
-    aspect-ratio: 3/4;
-}
-
-.product-card img {
-    width: 100%;
-    height: 100%;
+/* მთავარი ფოტო */
+.main-img {
+    width: 450px;
+    height: 600px;
     object-fit: cover;
-    transition: transform 1.2s ease;
+    z-index: 5;
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
-.product-card:hover img {
-    transform: scale(1.05);
+/* დამატებითი ფოტოები (დამალული) */
+.extra-img {
+    position: absolute;
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.description-box {
-    padding: 30px 0;
+/* Hover ეფექტი: მთავარი ფოტო პატარავდება, დანარჩენები იშლება */
+.gallery-container:hover .main-img {
+    transform: translateX(-150px) scale(0.8);
 }
 
-.price-tag {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
+.gallery-container:hover .img-2 { opacity: 1; transform: translate(150px, -120px); z-index: 6; }
+.gallery-container:hover .img-3 { opacity: 1; transform: translate(200px, 120px); z-index: 4; }
+.gallery-container:hover .img-4 { opacity: 1; transform: translate(350px, 0px); z-index: 3; }
 
-.etsy-button {
+.etsy-link {
     display: inline-block;
-    padding: 15px 40px;
-    border: 1px solid var(--text-color);
-    background: transparent;
-    color: var(--text-color);
+    margin-top: 20px;
+    padding: 12px 30px;
+    border: 1px solid #2c2c2c;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    color: #2c2c2c;
     font-size: 0.8rem;
-    transition: 0.4s;
+    letter-spacing: 0.2em;
+    transition: 0.3s;
 }
 
-.etsy-button:hover {
-    background: var(--text-color);
-    color: var(--bg-color);
-}
-
-.links-section {
-    padding: 100px 10%;
-    border-top: 1px solid var(--accent-color);
-    text-align: center;
-}
-
-.social-links a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 0.9rem;
+.etsy-link:hover {
+    background: #2c2c2c;
+    color: #fff;
 }
