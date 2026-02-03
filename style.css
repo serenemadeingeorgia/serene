@@ -2,106 +2,102 @@
 
 body {
     margin: 0;
-    background-color: #f8f5f2; /* SERENE Beige */
+    background-color: #f8f5f2;
     color: #2c2c2c;
     font-family: 'Inter', sans-serif;
 }
 
-/* დახვეწილი ტექსტური ლოგო */
 nav {
-    padding: 30px 0;
-    text-align: center;
-    letter-spacing: 0.8em;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-/* შემცირებული ზედა სივრცე */
-header {
-    padding: 60px 20px;
-    text-align: center;
-    background: #f2f0eb;
-}
-
-header p {
+.brand-name {
     font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.6em;
+}
+
+header {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 1.1rem;
     font-style: italic;
-    font-size: 1.2rem;
     color: #8c8c8c;
+    letter-spacing: 0.1em;
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 80px 40px;
-}
-
-/* გალერეის ეფექტი */
-.product-card {
+/* პროდუქტის სექცია - Split Layout */
+.product-section {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 120px;
-    gap: 40px;
+    min-height: 90vh;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    align-items: center;
 }
 
-/* პროდუქტის აღწერა გვერდზე */
-.product-info {
-    max-width: 500px;
-}
-
-.gallery-container {
+.gallery-side {
+    flex: 1;
     position: relative;
-    width: 100%;
-    height: 600px; /* ფიქსირებული სიმაღლე ესთეტიკისთვის */
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* მთავარი ფოტო */
+.info-side {
+    flex: 1;
+    padding: 0 10%;
+}
+
 .main-img {
-    width: 450px;
-    height: 600px;
+    width: 400px;
+    height: 550px;
     object-fit: cover;
     z-index: 5;
-    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* დამატებითი ფოტოები (დამალული) */
 .extra-img {
     position: absolute;
-    width: 200px;
-    height: 280px;
+    width: 180px;
+    height: 250px;
     object-fit: cover;
     opacity: 0;
-    z-index: 1;
-    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hover ეფექტი: მთავარი ფოტო პატარავდება, დანარჩენები იშლება */
-.gallery-container:hover .main-img {
-    transform: translateX(-150px) scale(0.8);
+/* Hover ეფექტი */
+.gallery-side:hover .main-img {
+    transform: translateX(-120px) scale(0.85);
 }
 
-.gallery-container:hover .img-2 { opacity: 1; transform: translate(150px, -120px); z-index: 6; }
-.gallery-container:hover .img-3 { opacity: 1; transform: translate(200px, 120px); z-index: 4; }
-.gallery-container:hover .img-4 { opacity: 1; transform: translate(350px, 0px); z-index: 3; }
+.gallery-side:hover .img-2 { opacity: 1; transform: translate(120px, -100px); }
+.gallery-side:hover .img-3 { opacity: 1; transform: translate(180px, 100px); }
+
+.product-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.price-tag { font-size: 1.2rem; color: #8c8c8c; margin-bottom: 30px; }
 
 .etsy-link {
     display: inline-block;
-    margin-top: 20px;
     padding: 12px 30px;
     border: 1px solid #2c2c2c;
     text-decoration: none;
     color: #2c2c2c;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    transition: 0.3s;
-}
-
-.etsy-link:hover {
-    background: #2c2c2c;
-    color: #fff;
-}
+    font-size: 0
