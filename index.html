@@ -9,16 +9,16 @@
 <body>
 
     <nav>
-        <div>THE ATELIER</div>
+        <a href="#atelier">THE ATELIER</a>
         <div class="brand-name">SERENE</div>
-        <div>SHOP BOUTIQUE</div>
+        <a href="https://www.etsy.com/shop/SereneGeorgia" target="_blank">SHOP BOUTIQUE</a>
     </nav>
 
     <header>
-        <h1>“Bridging the gap between private comfort and sartorial elegance.”</h1>
+        <h1 class="reveal">“Bridging the gap between private comfort and sartorial elegance.”</h1>
     </header>
 
-    <section class="product-section">
+    <section class="product-section reveal">
         <div class="gallery-side">
             <img src="Model-1.1.png" class="main-img">
             <img src="Model-1.2.png" class="extra-img img-2">
@@ -32,22 +32,8 @@
         </div>
     </section>
 
-    <section class="product-section">
-        <div class="gallery-side">
-            <img src="Model-2.1.png" class="main-img">
-            <img src="Model-2.2.png" class="extra-img img-2">
-            <img src="Model-2.3.png" class="extra-img img-3">
-        </div>
-        <div class="info-side">
-            <h2 class="product-title">The Forest Green</h2>
-            <p class="price-tag">$279</p>
-            <p>A grounding presence for the domestic sanctuary. Weighted for drape and crafted for the woman who values understatement.</p>
-            <a href="https://www.etsy.com/shop/SereneGeorgia" class="etsy-link" target="_blank">PURCHASE ON ETSY</a>
-        </div>
-    </section>
-
-    <section class="atelier-section">
-        <h2>About SERENE</h2>
+    <section id="atelier" class="atelier-page reveal">
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300;">About SERENE</h2>
         <div class="atelier-grid">
             <div class="atelier-item">
                 <h3>The Concept</h3>
@@ -55,23 +41,40 @@
             </div>
             <div class="atelier-item">
                 <h3>Craftsmanship</h3>
-                <p>Every piece is designed and produced entirely in Georgia, collaborating with local master seamstresses to ensure absolute oversight of every stitch.</p>
+                <p>Every piece is designed and produced entirely in Georgia. We collaborate with local master seamstresses ensuring absolute oversight of every stitch, seam, and silhouette.</p>
             </div>
             <div class="atelier-item">
                 <h3>Materials</h3>
-                <p>Exclusively high-grade silk and velvet, selected for structural integrity, superior drape, and tactile longevity.</p>
+                <p>We work exclusively with high-grade silk and velvet, selected for structural integrity, superior drape, and tactile longevity.</p>
             </div>
             <div class="atelier-item">
                 <h3>Slow Production</h3>
-                <p>We operate on a slow-release model, producing in limited batches to prioritize quality over volume.</p>
+                <p>We operate on a slow-release model, producing in limited batches to maintain the highest standards of quality and to minimize waste.</p>
             </div>
         </div>
     </section>
 
-    <footer style="padding: 100px; text-align: center; background: #f8f5f2; font-size: 0.8rem; letter-spacing: 0.2em;">
+    <footer style="padding: 100px; text-align: center; font-size: 0.8rem; letter-spacing: 0.2em; border-top: 1px solid rgba(0,0,0,0.05);">
         <a href="https://www.instagram.com/serene.madeingeorgia/" style="text-decoration: none; color: inherit;">INSTAGRAM</a> | 
         <a href="mailto:Info@serene-shop.com" style="text-decoration: none; color: inherit;">CONTACT</a>
+        <p style="margin-top: 20px; color: #8c8c8c;">© 2026 SERENE</p>
     </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Initial check
+    </script>
 
 </body>
 </html>
