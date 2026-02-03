@@ -1,63 +1,126 @@
-/* SERENE Premium Aesthetic */
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif; /* დახვეწილი, სუფთა ფონტი */
-    background-color: #faf9f6; /* რბილი თეთრი (Off-white) */
-    color: #2c2c2c;
-    line-height: 1.6;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@200;300&display=swap');
+
+:root {
+    --bg-color: #f8f5f2; /* ნაზი ბეჟი */
+    --accent-color: #d4cfc9; /* აბსტრაქტული ჩრდილის ფერი */
+    --text-color: #2c2c2c;
+    --luxury-gold: #a69d91;
 }
 
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ლოგოს სტილი */
+.logo-container {
+    padding: 40px;
+    text-align: center;
+}
+.logo-container img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Hero Section - აბსტრაქტული და სიღრმისეული */
 header {
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle, rgba(248,245,242,1) 0%, rgba(212,207,201,0.3) 100%);
     text-align: center;
-    background: #f2f0eb; /* ნაზი ბეჟი */
 }
 
-h1 {
-    font-size: 3rem;
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    margin-bottom: 20px;
 }
 
-.ritual-section {
-    padding: 100px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+.collection-title {
+    margin-top: 100px;
+    font-size: 2rem;
+    color: var(--luxury-gold);
 }
 
+/* პროდუქტების ბადე */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    padding: 50px 0;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 60px;
+    padding: 50px 10%;
 }
 
 .product-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 2px; /* მკაცრი, ელეგანტური კუთხეები */
-    transition: 0.3s;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover {
-    opacity: 0.8;
+    transform: translateY(-10px);
 }
 
-.price {
-    font-weight: 500;
-    color: #8c8c8c;
+.product-image-container {
+    overflow: hidden;
+    background-color: #eeeae6;
+    aspect-ratio: 3/4;
 }
 
-a {
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.description-box {
+    padding: 30px 0;
+}
+
+.price-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.etsy-button {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--text-color);
+    background: transparent;
+    color: var(--text-color);
     text-decoration: none;
-    color: inherit;
-    border-bottom: 1px solid #2c2c2c;
-    padding-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    transition: 0.4s;
+}
+
+.etsy-button:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+.links-section {
+    padding: 100px 10%;
+    border-top: 1px solid var(--accent-color);
+    text-align: center;
+}
+
+.social-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
 }
